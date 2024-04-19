@@ -13,7 +13,10 @@ public final class Board2 {
     }
 
     public static int indexFor(int x, int y, int reach){
-        return x + reach + (y + reach) * sideLength(reach);
+        int maxIndex = Math.pow(sideLength(reach));
+        int indexOf = x + reach + (y + reach) * sideLength(reach);
+        
+        return (indexOf<=maxIndex && indexOf>0) ? indexOf : -1; 
     }
 
     private Board2(int reach, PlacedTile[] tiles, int[] indices){
