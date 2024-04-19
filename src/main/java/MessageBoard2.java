@@ -26,7 +26,7 @@ public record MessageBoard2(List<String> messages, Map<PlayerColor,Integer> poin
         }
 
         public void addMessage(String message, int points, Set<PlayerColor> player){
-            if(points < 0){
+            if(points <= 0){
                 throw new IllegalArgumentException();
             }
 
