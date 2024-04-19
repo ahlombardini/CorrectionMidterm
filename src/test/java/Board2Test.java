@@ -2,10 +2,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * @author Alessandro Lombardini (362682)
- * @author Loan Raccio (378313)
- */
+
 public class Board2Test {
 
     @Test
