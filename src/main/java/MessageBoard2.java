@@ -40,14 +40,14 @@ public record MessageBoard2(List<String> messages, Map<PlayerColor,Integer> poin
             messages.add(message);
         }
 
-        public void addMessage(String message, int points, Set<PlayerColor> player){
-            if(points <= 0){
+        public void addMessage(String message, int points, Set<PlayerColor> scorers){
+            if(points <= 0 || scorers.isEmpty()){
                 throw new IllegalArgumentException();
             }
 
             messages.add(message);
 
-            for(PlayerColor p: player){
+            for(PlayerColor p : scorers){
                 map.put(p, map.getOrDefault(p,0) + points);
             }
 
