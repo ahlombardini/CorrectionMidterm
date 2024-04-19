@@ -4,7 +4,7 @@ import java.util.*;
 public record MessageBoard2(List<String> messages, Map<PlayerColor,Integer> points) {
     public MessageBoard2 {
         for(int p: points.values()){
-            if(p < 0){
+            if(p <= 0){
                 throw new IllegalArgumentException();
             }
         }
