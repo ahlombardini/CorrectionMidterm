@@ -12,6 +12,21 @@ public record MessageBoard2(List<String> messages, Map<PlayerColor,Integer> poin
         points = Map.copyOf(points);
     }
 
+    public Set<PlayerColor> leaders(){
+        Map<Integer,Set<PlayerColor>> m = new HashMap<>();
+        int max = 1;
+        for(Map.Entry<PlayerColor,Integer> entry: points.entrySet()) {
+            int v = entry.getValue();
+            PlayerColor k = entry.getKey();
+            Set<PlayerColor> s = m.getOrDefault(v, new HashSet<>());
+            s.add(k);
+            m.put(v,s);
+            max = Math.max(v, max);
+        }
+
+        return m.get(max);
+    }
+
     public static final class Builder{
         private final List<String> messages;
         private final Map<PlayerColor,Integer> map ;
