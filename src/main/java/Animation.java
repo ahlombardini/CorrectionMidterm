@@ -17,7 +17,7 @@ public interface Animation<T> {
 
     //Adapter design pattern
     default Image<T> snapshot(double tS){
-        return (x, y, t) -> apply(x, y, tS);
+        return (x, y) -> apply(x, y, tS);
     }
 
     //Composite design pattern
